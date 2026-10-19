@@ -1,0 +1,54 @@
+{
+  "_readme": [
+    "选定词书清单。key 进事实源 words.txt 的第一列，也是设备端 NVS 进度位图的分组键，",
+    "所以 key 一旦发过版就不能改（改了等于用户丢进度）。",
+    "order 就是设备上「选书」页的显示顺序：由易到难。",
+    "source 是 kajweb/dict 里的 zip 文件名（带时间戳前缀），下载后按 key 命名缓存。",
+    "expect 是实测词条数，用于卡住「下错了文件」这一类静默错误（下限取 0.9 倍）。"
+  ],
+  "cdn": "https://fastly.jsdelivr.net/gh/kajweb/dict@master/book/",
+  "books": [
+    {
+      "key": "ChuZhong_3",
+      "source": "1521164652700_ChuZhong_3.zip",
+      "short": "初中",
+      "name": "初中核心词汇",
+      "expect": 1803
+    },
+    {
+      "key": "GaoZhong_2",
+      "source": "1521164675301_GaoZhong_2.zip",
+      "short": "高中",
+      "name": "高中核心词汇",
+      "expect": 3668
+    },
+    {
+      "key": "CET4_2",
+      "source": "1521164635506_CET4_2.zip",
+      "short": "四级",
+      "name": "大学英语四级",
+      "expect": 3739
+    },
+    {
+      "key": "CET6_3",
+      "source": "1521164633851_CET6_3.zip",
+      "short": "六级",
+      "name": "大学英语六级",
+      "expect": 2345
+    },
+    {
+      "key": "KaoYan_2",
+      "source": "1521164654696_KaoYan_2.zip",
+      "short": "考研",
+      "name": "考研核心词汇",
+      "expect": 4533
+    },
+    {
+      "key": "IELTS_2",
+      "source": "1521164657744_IELTS_2.zip",
+      "short": "雅思",
+      "name": "雅思核心词汇",
+      "expect": 3427
+    }
+  ]
+}

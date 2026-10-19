@@ -1,0 +1,32 @@
+# ESP-IDF 构建产物（由 build_ed.ps1 / 组件管理器重新生成）
+build/
+managed_components/
+dependencies.lock
+sdkconfig
+sdkconfig.old
+
+# 宿主测试与本地运行产物
+build-host/
+*.exe
+*.log
+*.err
+*.stale.*
+.codex-runs/
+__pycache__/
+*.pyc
+
+# 词书 zip 缓存（约 11 MB）。事实源 words.txt 与产物 wd_content.bin 都要提交；
+# 只有这一层缓存不进仓库 —— 缺了重跑 extract.py 即可。
+tools/wordbook/cache/
+
+# Local tooling
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Never commit device credentials or flash dumps
+nvs_backup*
+*.nvs
+
+# 注意：这里**不能**写 *.bin —— assets/content/wd_content.bin 是固件必需的生成物。

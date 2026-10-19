@@ -1,0 +1,15 @@
+# Name,    Type, SubType, Offset,   Size,     Flags
+# Retained Recovery 契约布局（product_contract.json 的 immutable_layout，layout_id
+# mosaico-retained-recovery-2m-v1）。factory 里住的是 Vibe Mode 恢复固件，不是本应用：
+# 不要为了"容纳首装镜像"去放大 factory —— prepare_system_update.py 会以
+# "unexpected factory layout" 拒绝打包，设备侧 factory_system_update.c 的
+# require_immutable_contract 还会再拒一次。本应用镜像里最大的一块是链进 rodata 的
+# 词库 assets/content/wd_content.bin（2,899,123 字节）+ 三档字库（约 1.5 MB），
+# 加上代码后必须仍然小于 ota_0 的 14,680,064 字节 —— 超了是打包阶段报错，不会刷进设备。
+otadata,   data, ota,     0x9000,   0x2000,
+phy_init,  data, phy,     0xb000,   0x1000,
+sysmeta,   data, nvs,     0xc000,   0x14000,
+factory,   app,  factory, 0x20000,  0x1c0000,
+coredump,  data, coredump,0x1e0000, 0x20000,
+nvs,       data, nvs,     0x200000, 0x10000,
+ota_0,     app,  ota_0,   0x210000, 0xdf0000,
